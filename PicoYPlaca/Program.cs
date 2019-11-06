@@ -10,6 +10,7 @@ namespace PicoYPlaca
 	{
 		static void Main(string[] args)
 		{
+			Console.WriteLine("*****Pico & Placa Predictor********");
 		}
 	}
 }
