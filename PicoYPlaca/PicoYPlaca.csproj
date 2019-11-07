@@ -49,5 +49,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PicoYPlaca.Util\PicoYPlaca.Util.csproj">
+      <Project>{1b248019-a992-4cdd-899f-cd5c297bff42}</Project>
+      <Name>PicoYPlaca.Util</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
