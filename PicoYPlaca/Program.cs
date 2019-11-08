@@ -15,24 +15,24 @@ namespace PicoYPlaca
 			do
 			{
 				Console.Clear();
-				Console.WriteLine("******Pico & Placa Predictor******");
+				Console.WriteLine("******Pico & Placa InputValidator******");
 
 				string licensePlate = GetLicensePlate();
-				while (!Predictor.IsLicensePlateValid(licensePlate))
+				while (!InputValidator.IsLicensePlateValid(licensePlate))
 				{
 					Console.WriteLine("Wrong license plate Format!");
 					licensePlate = GetLicensePlate();
 				}
 
 				string date = GetDate();
-				while(!Predictor.StringToDateOrTime(date, true, out DateTime convertedDate))
+				while(!InputValidator.StringToDateOrTime(date, true, out DateTime convertedDate))
 				{
 					Console.WriteLine("Wrong date format!");
 					date = GetDate();
 				}
 
 				string time = GetTime();
-				while(!Predictor.StringToDateOrTime(time, false, out DateTime convertedTime))
+				while(!InputValidator.StringToDateOrTime(time, false, out DateTime convertedTime))
 				{
 					Console.WriteLine("Wrong time format!");
 					time = GetTime();
@@ -45,19 +45,19 @@ namespace PicoYPlaca
 
 		private static string GetLicensePlate()
 		{
-			Console.Write("Enter the license plate with valid province letter (Format: AAA-0000 or AAA-000): ");
+			Console.Write("Enter a valid ecuadorian license plate with or without '-' in the middle: ");
 			return Console.ReadLine();
 		}
 
 		private static string GetDate()
 		{
-			Console.Write($"Enter the date (Format: {Predictor.dateFormat}): ");
+			Console.Write($"Enter the date (Format: {InputValidator.dateFormat}): ");
 			return Console.ReadLine();
 		}
 
 		private static string GetTime()
 		{
-			Console.Write($"Enter the time in 24 Hour format (Format: {Predictor.timeFormat}): ");
+			Console.Write($"Enter the time in 24 Hour format (Format: {InputValidator.timeFormat}): ");
 			return Console.ReadLine();
 		}
 	}
