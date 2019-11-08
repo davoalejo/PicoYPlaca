@@ -9,9 +9,9 @@ How to run the Unit Tests
 
 - From cmd preferible powershell, you go the folder (.../PicoYPlaca/PicoYPlaca.Tests/bin/Debug/)
 - Enter the command 
-  dotnet vstest PicoYPlaca.Tests.dll /Framework:.NETFramework,Version=v4.7.2 /TestAdapterPath:C:\PicoYPlaca-master\packages\MSTest.TestAdapter.1.3.2 
-  You might need to change the value after /TestAdapterPath for the path where the solution files are stored.
-  And press ENTER.
+ - dotnet vstest PicoYPlaca.Tests.dll /Framework:.NETFramework,Version=v4.7.2 /TestAdapterPath:C:\PicoYPlaca-master\packages\MSTest.TestAdapter.1.3.2
+ - You might need to change the value after /TestAdapterPath for the path where the solution files are stored.
+ - And press ENTER.
 
 Inputs:
  - A valid ecuadorian License Plate (Validations include Special plates(Diplomatic, etc), 
