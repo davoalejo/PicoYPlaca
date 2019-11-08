@@ -43,7 +43,10 @@
     <Reference Include="Microsoft.Analytics.Types" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\LicensePlate.cs" />
+    <Compile Include="Models\PicoYPlacaRule.cs" />
     <Compile Include="Predictor\InputValidator.cs" />
+    <Compile Include="Predictor\Predictor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

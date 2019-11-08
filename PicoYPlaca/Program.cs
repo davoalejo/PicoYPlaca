@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using PicoYPlaca.Util;
+using PicoYPlaca.Util.Models;
+using PicoYPlaca.Util.Predictor;
 
 namespace PicoYPlaca
 {
@@ -15,7 +12,7 @@ namespace PicoYPlaca
 			do
 			{
 				Console.Clear();
-				Console.WriteLine("******Pico & Placa InputValidator******");
+				Console.WriteLine("******Pico & Placa Predictor******");
 
 				string licensePlate = GetLicensePlate();
 				while (!InputValidator.IsLicensePlateValid(licensePlate))
@@ -25,23 +22,29 @@ namespace PicoYPlaca
 				}
 
 				string date = GetDate();
-				while(!InputValidator.StringToDateOrTime(date, true, out DateTime convertedDate))
+				DateTime convertedDate;
+				while (!InputValidator.StringToDateOrTime(date, true, out convertedDate))
 				{
 					Console.WriteLine("Wrong date format!");
 					date = GetDate();
 				}
 
 				string time = GetTime();
-				while(!InputValidator.StringToDateOrTime(time, false, out DateTime convertedTime))
+				DateTime convertedTime;
+				while (!InputValidator.StringToDateOrTime(time, false, out convertedTime))
 				{
 					Console.WriteLine("Wrong time format!");
 					time = GetTime();
 				}
-
+				Console.Clear();
+				//Create the model for the License
+				var licenseModel = new LicensePlate { LicensePlateNumber = licensePlate };
+				//Get and display the message from the predictor
+				Console.WriteLine(Predictor.PredictPicoYPlaca(licenseModel, convertedDate, convertedTime.TimeOfDay));
 				Console.Write("Exit? (Y/N): ");
 				exit = Console.ReadLine().ToLower() == "y";
 			} while (!exit);
-		}		
+		}
 
 		private static string GetLicensePlate()
 		{

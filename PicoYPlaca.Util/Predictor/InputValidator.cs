@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.Text.RegularExpressions;
 
-namespace PicoYPlaca.Util
+namespace PicoYPlaca.Util.Predictor
 {
 	public class InputValidator
 	{
@@ -10,8 +10,13 @@ namespace PicoYPlaca.Util
 		public static readonly string dateFormat = "dd/MM/yyyy";
 		public static readonly string timeFormat = "HH:mm";
 		private static readonly string _normalLicenseRegex = "^[a-ceg-ik-tv-z][a-z]{2}(-|)[\\d]{3,4}";
+		public static readonly Regex regExNormalPlate = new Regex(_normalLicenseRegex, RegexOptions.IgnoreCase);
 		private static readonly string _motorcycleLicenseRegex = "^[a-z][a-z][\\d]{3}[a-z]";
+		public static readonly Regex regExMotorcyclePlate = new Regex(_motorcycleLicenseRegex, RegexOptions.IgnoreCase);
 		private static readonly string _specialLicenseRegex = "^(cc|cd|oi|at|it)(-|)[\\d]{3,4}";
+		public static readonly Regex regExSpecialPlate = new Regex(_specialLicenseRegex, RegexOptions.IgnoreCase);
+		private static readonly string _publicLicenseRegex = "^[a-ceg-ik-tv-z][aemuxz][a-z](-|)[\\d]{3,4}";
+		public static readonly Regex regExPublicPlate = new Regex(_publicLicenseRegex, RegexOptions.IgnoreCase);
 		#endregion
 
 		/// <summary>
@@ -19,9 +24,6 @@ namespace PicoYPlaca.Util
 		/// </summary>
 		public static bool IsLicensePlateValid(string licensePlate)
 		{			
-			var regExNormalPlate = new Regex(_normalLicenseRegex, RegexOptions.IgnoreCase);
-			var regExMotorcyclePlate = new Regex(_motorcycleLicenseRegex, RegexOptions.IgnoreCase);
-			var regExSpecialPlate = new Regex(_specialLicenseRegex, RegexOptions.IgnoreCase);
 			bool isValid = regExNormalPlate.IsMatch(licensePlate) || regExMotorcyclePlate.IsMatch(licensePlate) || 
 				regExSpecialPlate.IsMatch(licensePlate);
 			return isValid;

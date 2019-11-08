@@ -1,11 +1,11 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using PicoYPlaca.Util;
+using PicoYPlaca.Util.Predictor;
 
-namespace PicoYPlaca.Tests
+namespace PicoYPlaca.Tests.TestClasses
 {
 	[TestClass]
-	public class PredictorTest
+	public class InputValidatorTests
 	{
 		#region IsLicensePlateValid
 

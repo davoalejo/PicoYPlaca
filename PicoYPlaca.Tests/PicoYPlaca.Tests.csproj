@@ -49,8 +49,9 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PredictorTest.cs" />
+    <Compile Include="TestClasses\InputValidatorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestClasses\PredictorTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
